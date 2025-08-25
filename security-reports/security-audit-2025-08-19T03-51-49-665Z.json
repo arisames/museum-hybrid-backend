@@ -1,0 +1,142 @@
+{
+  "timestamp": "2025-08-19T03:51:48.340Z",
+  "vulnerabilities": [],
+  "outdatedPackages": [
+    {
+      "package": "dotenv",
+      "current": "17.2.0",
+      "wanted": "17.2.1",
+      "latest": "17.2.1",
+      "location": "/home/ubuntu/museum_hybrid/backend/node_modules/dotenv",
+      "severity": "low"
+    },
+    {
+      "package": "joi",
+      "current": "17.13.3",
+      "wanted": "17.13.3",
+      "latest": "18.0.0",
+      "location": "/home/ubuntu/museum_hybrid/backend/node_modules/joi",
+      "severity": "high"
+    },
+    {
+      "package": "mongoose",
+      "current": "8.16.3",
+      "wanted": "8.17.2",
+      "latest": "8.17.2",
+      "location": "/home/ubuntu/museum_hybrid/backend/node_modules/mongoose",
+      "severity": "moderate"
+    }
+  ],
+  "securityHeaders": [
+    {
+      "name": "Helmet.js",
+      "passed": true,
+      "message": "Helmet.js middleware should be configured",
+      "severity": "high"
+    },
+    {
+      "name": "Content Security Policy",
+      "passed": true,
+      "message": "Content Security Policy should be configured",
+      "severity": "moderate"
+    },
+    {
+      "name": "HSTS",
+      "passed": true,
+      "message": "HTTP Strict Transport Security should be enabled",
+      "severity": "moderate"
+    },
+    {
+      "name": "X-Frame-Options",
+      "passed": true,
+      "message": "X-Frame-Options header should be set",
+      "severity": "moderate"
+    },
+    {
+      "name": "CORS Configuration",
+      "passed": true,
+      "message": "CORS should be properly configured",
+      "severity": "high"
+    }
+  ],
+  "environmentChecks": [
+    {
+      "name": "NODE_ENV",
+      "passed": false,
+      "message": "NODE_ENV should be set to \"production\" in production",
+      "severity": "high"
+    },
+    {
+      "name": "JWT_SECRET",
+      "message": "JWT_SECRET should be a strong, unique secret (64+ characters)",
+      "severity": "critical"
+    },
+    {
+      "name": "JWT_REFRESH_SECRET",
+      "message": "JWT_REFRESH_SECRET should be different from JWT_SECRET and equally strong",
+      "severity": "critical"
+    },
+    {
+      "name": "MONGO_URI",
+      "message": "MONGO_URI should use authentication and not point to localhost in production",
+      "severity": "high"
+    },
+    {
+      "name": "HTTPS",
+      "passed": true,
+      "message": "FRONTEND_URL should use HTTPS in production",
+      "severity": "moderate"
+    },
+    {
+      "name": "DEBUG_MODE",
+      "passed": true,
+      "message": "Debug mode should be disabled in production",
+      "severity": "moderate"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "outdated-packages",
+      "message": "1 packages have major version updates available",
+      "severity": "moderate",
+      "action": "Review and update packages: joi"
+    },
+    {
+      "type": "environment-security",
+      "message": "4 environment security issues found",
+      "severity": "high",
+      "action": "Review and fix environment configuration",
+      "details": [
+        "NODE_ENV should be set to \"production\" in production",
+        "JWT_SECRET should be a strong, unique secret (64+ characters)",
+        "JWT_REFRESH_SECRET should be different from JWT_SECRET and equally strong",
+        "MONGO_URI should use authentication and not point to localhost in production"
+      ]
+    },
+    {
+      "type": "regular-audits",
+      "message": "Schedule regular security audits",
+      "severity": "info",
+      "action": "Add \"npm run security-audit\" to your CI/CD pipeline"
+    },
+    {
+      "type": "dependency-updates",
+      "message": "Keep dependencies updated",
+      "severity": "info",
+      "action": "Review and update dependencies monthly"
+    },
+    {
+      "type": "security-monitoring",
+      "message": "Implement security monitoring",
+      "severity": "info",
+      "action": "Consider using tools like Snyk, WhiteSource, or GitHub Security Advisories"
+    }
+  ],
+  "summary": {
+    "critical": 2,
+    "high": 2,
+    "moderate": 0,
+    "low": 0,
+    "info": 0
+  }
+}
